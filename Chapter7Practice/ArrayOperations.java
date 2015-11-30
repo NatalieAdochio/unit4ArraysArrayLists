@@ -9,32 +9,44 @@
 public class ArrayOperations
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    
 
     /**
      * Default constructor for objects of class ArrayOperations
      */
-    public ArrayOperations()
+    public static void main(String[] args)
     {
         // initialise instance variables
-        x = 0;
+        double[] x = {8, 4, 5, 21,7,9,18,2,100};
+        System.out.println("length of x: " + x.length);
+        System.out.println("x[0] : "+ x[0]);
+        System.out.println("x[8]: "+ x[8]);
+        System.out.println(x[x.length -1]:"+x[x.length-1]);
+        for(int i =0; i < x.length; i++)
+        {
+            System.out.println(x[i]);
+        }
+        for (int i = 0; i<x.length; i++)
+        {
+            //g e7.2
+            System.out.println("x["+i+"] : " + x[i]);
+        }
+        for (int i = x.length -1; i>= 0; i--)
+        {
+            System.out.println("x["+ i +"] :" + x[i]);
+        }
+        for (double value: x)
+        {
+            //the array goes after the colon and then it assigns whatever it is to the value vari
+            //can't print labels because don't know where it is in the list
+            System.out.println(value);
+        }
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
+    public static void printItOut()
     {
         // put your code here
-        return x+y;
+        
     }
 
 }
