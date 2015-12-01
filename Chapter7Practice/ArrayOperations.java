@@ -21,7 +21,7 @@ public class ArrayOperations
         System.out.println("length of x: " + x.length);
         System.out.println("x[0] : "+ x[0]);
         System.out.println("x[8]: "+ x[8]);
-        System.out.println(x[x.length -1]:"+x[x.length-1]);
+        System.out.println(x[x.length -1]+":"+x[x.length-1]);
         for(int i =0; i < x.length; i++)
         {
             System.out.println(x[i]);
