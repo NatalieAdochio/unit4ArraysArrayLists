@@ -34,8 +34,8 @@ public class Radar
     public Radar(int rows, int cols)
     {
         // initialize the currentScan 2D array and the accumulator 2D array
-        
-        
+        currentScan = new boolean[rows][cols];
+        accumulator = new int[rows][cols];
         //
         // !!! add code here !!!
         //
@@ -62,11 +62,26 @@ public class Radar
         //    3. inject noise into the grid
         //    4. update the accumulator 2D array based on the state of the currentScan 2D array
         //    5. increment the numScans instance variable
-        
-        
-        //
-        // !!! add code here !!!
-        //
+        for( int i = 0; i< currentScan.length; i++)
+        {
+            for(int j = 0; j< currentScan[i].length; j++)
+            {
+                currentScan[i][j] = false;
+            }
+        }
+        this.setMonsterLocation(monsterLocationRow,monsterLocationCol);
+        this.injectNoise();
+        for( int i = 0; i< currentScan.length; i++)
+        {
+            for(int j = 0; j< currentScan[i].length; j++)
+            {
+                if(currentScan[i][j]== true)
+                {
+                    accumulator[i][j] += 1;
+                }
+            }
+        }
+        numScans++;
         
         
     }
@@ -167,10 +182,18 @@ public class Radar
         // as a false positive.
         
         
-        //
-        // !!! add code here !!!
-        //
-        
+           for( int i = 0; i< currentScan.length; i++)
+        {
+            for(int j = 0; j< currentScan[i].length; j++)
+            {
+             double numberValue = Math.random() * 100;
+             if( numberValue <= (noiseFraction*100))
+             {
+                 currentScan[i][j]= true;
+             }
+              
+            }
+        }
         
     }
     

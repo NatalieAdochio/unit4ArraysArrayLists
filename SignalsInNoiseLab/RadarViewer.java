@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import java.util.Scanner;
 
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
@@ -18,6 +19,14 @@ public class RadarViewer
         final int ROWS = 100;
         final int COLS = 100;
         Radar radar = new Radar(ROWS, COLS);
+        // USER CAN INPUT WHERE THEY WANT THE MONSTER
+        Scanner scaning = new Scanner(System.in);
+        System.out.print("What row do you want the monster in?");
+        int rows = scaning.nextInt();
+        System.out.print("What column do you weant the monster in?");
+        int cols = scaning.nextInt();
+        radar.setMonsterLocation(rows,cols);
+        
         radar.setNoiseFraction(0.10);
         radar.scan();
         
