@@ -45,33 +45,20 @@ public class RadarTest
     {
     }
     
+    /**
+     * This makes a new radar with the set size of 5x5
+     * This sets the location of the monster so that it can be checked to make sure it is in the 
+     * right place when checked
+     * Then it detects where they think the monster is and then checks it with assertEquals
+     * 
+     */
     @Test
     public void testRadar()
     {
         Radar radar = new Radar(5,5);
         radar.setMonsterLocation(0,0);
-        radar.setNoiseFraction(0.05);
-        for(int i = 0; i<100;i++)
-        {
-            radar.scan();
-        }
-        int highestNumber = 0;
-        int highestRow = 0;
-        int highestCol = 0;
-        for( int i = 0; i< 5; i++)
-        {
-            for(int j = 0; j< 5; j++)
-            {
-              int currentNumber= radar.getAccumulatedDetection(i,j);
-              if(currentNumber > highestNumber)
-              {
-                  //this is where the monster is
-                   highestRow = i;
-                   highestCol = j;
-                }
-            }
-        }
-        System.out.print("Row of monster:"+ highestRow);
-        System.out.print("Column of monster:"+highestCol);
+        radar.setNoiseFraction(0.00);
+        radar.scan();
+        assertEquals(true, radar.isDetected(0,0));
     }
 }

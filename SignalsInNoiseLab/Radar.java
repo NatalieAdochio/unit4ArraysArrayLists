@@ -37,7 +37,7 @@ public class Radar
         currentScan = new boolean[rows][cols];
         accumulator = new int[rows][cols];
         //
-        // !!! add code here !!!
+        // 
         //
         
         
@@ -58,10 +58,6 @@ public class Radar
     {
         // algorithm for performing a scan:
         //    1. set all cells in the currentScan 2D array to false
-        //    2. set the location of the monster in the currentScan 2D array
-        //    3. inject noise into the grid
-        //    4. update the accumulator 2D array based on the state of the currentScan 2D array
-        //    5. increment the numScans instance variable
         for( int i = 0; i< currentScan.length; i++)
         {
             for(int j = 0; j< currentScan[i].length; j++)
@@ -69,8 +65,11 @@ public class Radar
                 currentScan[i][j] = false;
             }
         }
+        //    2. set the location of the monster in the currentScan 2D array
         this.setMonsterLocation(monsterLocationRow,monsterLocationCol);
+         //    3. inject noise into the grid
         this.injectNoise();
+        //    4. update the accumulator 2D array based on the state of the currentScan 2D array
         for( int i = 0; i< currentScan.length; i++)
         {
             for(int j = 0; j< currentScan[i].length; j++)
@@ -81,6 +80,7 @@ public class Radar
                 }
             }
         }
+        //    5. increment the numScans instance variable
         numScans++;
         
         
