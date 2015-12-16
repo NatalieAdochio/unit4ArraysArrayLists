@@ -66,11 +66,11 @@ public class RadarTest
         {
             for(int j = 0; j< 5; j++)
             {
-                if(radar.getAccumulatedDetection(0,0)>= radar.getAccumulatedDetection(i,j))
+                if(radar.getAccumulatedDetection(0,0)> radar.getAccumulatedDetection(i,j))
                 {
                     
                 }
-                else
+                else if(i != 0 && j != 0)
                 {
                     fail();
                 }
@@ -101,11 +101,11 @@ public class RadarTest
         {
             for(int j = 0; j< 5; j++)
             {
-                if(radar.getAccumulatedDetection(4,4)>= radar.getAccumulatedDetection(i,j))
+                if(radar.getAccumulatedDetection(4,4)> radar.getAccumulatedDetection(i,j))
                 {
                      
                 }
-                else
+                else if( i!= 4 && j!= 4)
                 {
                     fail();
                 }
