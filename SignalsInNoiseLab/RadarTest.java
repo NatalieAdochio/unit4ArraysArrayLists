@@ -1,5 +1,4 @@
 
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -24,7 +23,7 @@ public class RadarTest
         // initialise instance variables
         x = 0;
     }
-    
+
     /**
      * Sets up the test fixture.
      *
@@ -44,7 +43,7 @@ public class RadarTest
     public void tearDown()
     {
     }
-    
+
     /**
      * This makes a new radar with the set size of 5x5
      * This sets the location of the monster so that it can be checked to make sure it is in the 
@@ -57,8 +56,60 @@ public class RadarTest
     {
         Radar radar = new Radar(5,5);
         radar.setMonsterLocation(0,0);
-        radar.setNoiseFraction(0.00);
-        radar.scan();
-        assertEquals(true, radar.isDetected(0,0));
+        radar.setNoiseFraction(0.05);
+        for(int i =0; i<50; i++)
+        {
+            radar.scan();
+
+        }
+        for( int i = 0; i< 5; i++)
+        {
+            for(int j = 0; j< 5; j++)
+            {
+                if(radar.getAccumulatedDetection(0,0)>= radar.getAccumulatedDetection(i,j))
+                {
+                    
+                }
+                else
+                {
+                    fail();
+                }
+            }
+        } 
+
+    }
+
+    /**
+     * This makes a new radar with the set size of 5x5
+     * This sets the location of the monster so that it can be checked to make sure it is in the 
+     * right place when checked
+     * Then it detects where they think the monster is and then checks it with assertEquals
+     * 
+     */
+    @Test
+    public void testRadarAgain()
+    {
+        Radar radar = new Radar(5,5);
+        radar.setMonsterLocation(4,4);
+        radar.setNoiseFraction(0.05);
+        for(int i =0; i<50; i++)
+        {
+            radar.scan();
+
+        }
+        for( int i = 0; i< 5; i++)
+        {
+            for(int j = 0; j< 5; j++)
+            {
+                if(radar.getAccumulatedDetection(4,4)>= radar.getAccumulatedDetection(i,j))
+                {
+                     
+                }
+                else
+                {
+                    fail();
+                }
+            }
+        } 
     }
 }
